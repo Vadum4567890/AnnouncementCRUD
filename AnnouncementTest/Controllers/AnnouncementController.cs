@@ -19,7 +19,11 @@ namespace AnnouncementTest.Controllers
         public ActionResult<IEnumerable<Announcement>> GetAnnouncements()
         {
             var announcements = _dbContext.Announcements.ToList();
-            return Ok(announcements);
+            if (announcements.Any())
+            {
+                return Ok(announcements);
+            }
+            return NotFound();
         }
 
         // GET: api/Announcement/5

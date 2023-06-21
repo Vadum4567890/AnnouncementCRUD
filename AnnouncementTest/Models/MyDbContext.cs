@@ -7,6 +7,7 @@ namespace AnnouncementTest.Models
         public DbSet<Announcement> Announcements { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
+            Database.EnsureCreated();
         }
     }
 }
